@@ -29,7 +29,11 @@ function fpca.open_gui(entity,player)
 	globtable.entity = entity
 	local gui = player.gui.center.add({type = "frame", name = "fpca_gui", direction = "vertical"})
 	globtable.gui = gui
-	gui.add({type = "label", name = "entity_name", style = "tutorial_notice_name_label_style", caption = {"Field Programmable Combinator Array"}})
+	gui.add({type = "label", name = "entity_name", style = "menu_message_style", caption = {"Field Programmable Combinator Array"}})
+	gui.add({type = "flow", name = "main_win", style = "flow_style", direction = "horizontal"})
+	gui.main_win.add({type = "flow", name = "io_flow", style = "flow_style", direction = "vertical"})
+	gui.main_win.add({type = "textfield", name = "code_filed", style = "textfield_style"})
+	gui.main_win.add({type = "flow" , name = "help_flow", stye = "flow_style", direction = "vertical"})
 end
 
 function fpca.delete_gui(player_index)
