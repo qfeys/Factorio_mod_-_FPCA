@@ -31,13 +31,29 @@ function fpca.open_gui(entity,player)
 	globtable.gui = gui
 	gui.add({type = "label", name = "entity_name", style = "menu_message_style", caption = "Field Programmable Combinator Array"})
 	gui.add({type = "flow", name = "main_win", style = "flow_style", direction = "horizontal"})
+	--1st collom: IO
 	gui.main_win.add({type = "flow", name = "io_flow", style = "flow_style", direction = "vertical"})
+	for i = 1,4 do
+		gui.main_win.io_flow.add({type = "flow", name = "io_"..i, stye = "flow_style", direction = "horizontal"})
+		gui.main_win.io_flow["io_"..i].add({type = "choose-elem-button", name = "io_"..i.."_in", elem_type = "signal"})
+		gui.main_win.io_flow["io_"..i].add({type = "label", name = "io_"..i.."_value", style = "bold_label_style", caption = "00"})
+		gui.main_win.io_flow["io_"..i].add({type = "choose-elem-button", name = "io_"..i.."_out", elem_type = "signal"})
+		gui.main_win.io_flow["io_"..i].add({type = "label", name = "io_"..i.."_name", style = "caption_label_style", caption = "A"})
+	end
+	gui.main_win.io_flow.io_1.io_1_name.caption = "IOA"
+	gui.main_win.io_flow.io_2.io_2_name.caption = "IOB"
+	gui.main_win.io_flow.io_3.io_3_name.caption = "IOC"
+	gui.main_win.io_flow.io_4.io_4_name.caption = "IOD"
+	--2nd collom: code
 	gui.main_win.add({type = "flow", name = "code_flow", style = "flow_style", direction = "vertical"})
 	for i = 1,16 do
 		gui.main_win.code_flow.add({type = "textfield", name = "line_"..i, style = "textfield_style"})
 	end
+	--3rd collom: mem & butons
+	
+	--4th collom: help
 	gui.main_win.add({type = "flow" , name = "help_flow", stye = "flow_style", direction = "vertical"})
-	gui.main_win.help_flow.add({type = "label", name = "help_1", style = "label_style", caption = "Available commands"})
+	gui.main_win.help_flow.add({type = "label", name = "help_1", style = "bold_label_style", caption = "Available commands"})
 	gui.main_win.help_flow.add({type = "label", name = "help_2", style = "label_style", caption = "SLC: select memory"})
 	gui.main_win.help_flow.add({type = "label", name = "help_3", style = "label_style", caption = "LOD: load into memory"})
 	gui.main_win.help_flow.add({type = "label", name = "help_4", style = "label_style", caption = "SET: Set with memory"})
@@ -48,7 +64,7 @@ function fpca.open_gui(entity,player)
 	gui.main_win.help_flow.add({type = "label", name = "help_9", style = "label_style", caption = "MRK: mark, see GTO"})
 	gui.main_win.help_flow.add({type = "label", name = "help_10", style = "label_style", caption = "CPR: compare with memory"})
 	gui.main_win.help_flow.add({type = "label", name = "help_11", style = "label_style", caption = "RST: reset clock"})
-	gui.main_win.help_flow.add({type = "label", name = "help_a0", style = "label_style", caption = "Available variables"})
+	gui.main_win.help_flow.add({type = "label", name = "help_a0", style = "bold_label_style", caption = "Available variables"})
 	gui.main_win.help_flow.add({type = "label", name = "help_a1", style = "label_style", caption = "MEA: memory A"})
 	gui.main_win.help_flow.add({type = "label", name = "help_a2", style = "label_style", caption = "MEB: memory B"})
 	gui.main_win.help_flow.add({type = "label", name = "help_a3", style = "label_style", caption = "IOA: in/output gate A"})
