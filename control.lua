@@ -32,7 +32,10 @@ function fpca.open_gui(entity,player)
 	gui.add({type = "label", name = "entity_name", style = "menu_message_style", caption = {"Field Programmable Combinator Array"}})
 	gui.add({type = "flow", name = "main_win", style = "flow_style", direction = "horizontal"})
 	gui.main_win.add({type = "flow", name = "io_flow", style = "flow_style", direction = "vertical"})
-	gui.main_win.add({type = "textfield", name = "code_filed", style = "textfield_style"})
+	gui.main_win.add({type = "flow", name = "code_flow", style = "flow_style", direction = "vertical"})
+	for i = 1,16 do
+		gui.main_win.code_flow.add({type = "textfield", name = "line_"..i, style = "textfield_style"})
+	end
 	gui.main_win.add({type = "flow" , name = "help_flow", stye = "flow_style", direction = "vertical"})
 end
 
