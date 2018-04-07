@@ -50,7 +50,15 @@ function fpca.open_gui(entity,player)
 		gui.main_win.code_flow.add({type = "textfield", name = "line_"..i, style = "textfield_style"})
 	end
 	--3rd collom: mem & butons
-	
+	gui.main_win.add({type = "flow", name = "mem_flow", stye = "flow_style", direction = "vertical"})
+	gui.main_win.mem_flow.add({type = "label", name = "clk_name", stye = "bold_label_style", caption = "CLK"})
+	gui.main_win.mem_flow.add({type = "label", name = "clk_value", stye = "label_style", caption = "00"})
+	gui.main_win.mem_flow.add({type = "label", name = "memA_name", stye = "bold_label_style", caption = "CLK"})
+	gui.main_win.mem_flow.add({type = "label", name = "memA_value", stye = "label_style", caption = "00"})
+	gui.main_win.mem_flow.add({type = "label", name = "memB_name", stye = "bold_label_style", caption = "CLK"})
+	gui.main_win.mem_flow.add({type = "label", name = "memB_value", stye = "label_style", caption = "00"})
+	gui.main_win.mem_flow.add({type = "button", name = "test_err_but", style = "button_style", caption = "Test Errors"})
+	gui.main_win.mem_flow.add({type = "button", name = "run_but", style = "button_style", caption = "Run"})
 	--4th collom: help
 	gui.main_win.add({type = "flow" , name = "help_flow", stye = "flow_style", direction = "vertical"})
 	gui.main_win.help_flow.add({type = "label", name = "help_1", style = "bold_label_style", caption = "Available commands"})
