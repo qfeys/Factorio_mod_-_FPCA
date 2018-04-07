@@ -91,3 +91,6 @@ function fpca.delete_gui(player_index)
 		globtable.gui = nil
 	end
 end
+
+
+script.on_event(defines.events.on_test_err, test_err_but)

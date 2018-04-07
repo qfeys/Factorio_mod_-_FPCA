@@ -9,6 +9,7 @@ local entity = {
     corpse = "small-remnants",
     collision_box = {{-0.35, -0.65}, {0.35, 0.65}},
     selection_box = {{-0.5, -1}, {0.5, 1}},
+	icon_size = 32,
 
     item_slot_count = 0,
 
@@ -74,7 +75,7 @@ local entity = {
     {
       north =
       {
-        filename = "__base__/graphics/entity/combinator/activity-leds/combinator-led-arithmetic-north.png",
+        filename = "__base__/graphics/entity/combinator/activity-leds/arithmetic-combinator-LED-N.png",
         width = 11,
         height = 11,
         frame_count = 1,
@@ -82,7 +83,7 @@ local entity = {
       },
       east =
       {
-        filename = "__base__/graphics/entity/combinator/activity-leds/combinator-led-arithmetic-east.png",
+        filename = "__base__/graphics/entity/combinator/activity-leds/arithmetic-combinator-LED-E.png",
         width = 10,
         height = 10,
         frame_count = 1,
@@ -90,7 +91,7 @@ local entity = {
       },
       south =
       {
-        filename = "__base__/graphics/entity/combinator/activity-leds/combinator-led-arithmetic-south.png",
+        filename = "__base__/graphics/entity/combinator/activity-leds/arithmetic-combinator-LED-S.png",
         width = 13,
         height = 11,
         frame_count = 1,
@@ -98,7 +99,7 @@ local entity = {
       },
       west =
       {
-        filename = "__base__/graphics/entity/combinator/activity-leds/combinator-led-arithmetic-west.png",
+        filename = "__base__/graphics/entity/combinator/activity-leds/arithmetic-combinator-LED-W.png",
         width = 13,
         height = 11,
         frame_count = 1,
@@ -210,6 +211,7 @@ local tech = {
     type = "technology",
     name = "advanced-circuit-network",
     icon = "__base__/graphics/technology/circuit-network.png",
+	icon_size = 128,
     effects =
     {
       {
@@ -240,7 +242,8 @@ local item = {
     subgroup = "circuit-network",
     place_result="fpca",
     order = "c[combinators]-d[fpca]",
-    stack_size= 50,
+    stack_size = 50,
+	icon_size = 32,
   }
 
 data:extend{entity,recipe,tech,item}
