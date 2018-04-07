@@ -1,17 +1,16 @@
-  
-local entity = {
+local entity = generate_arithmetic_combinator{
     type = "constant-combinator",
     name = "fpca",
     icon = "__base__/graphics/icons/arithmetic-combinator.png",
+	icon_size = 32,
     flags = {"placeable-neutral", "player-creation"},
     minable = {hardness = 0.2, mining_time = 0.5, result = "fpca"},
     max_health = 150,
     corpse = "small-remnants",
     collision_box = {{-0.35, -0.65}, {0.35, 0.65}},
     selection_box = {{-0.5, -1}, {0.5, 1}},
-	icon_size = 32,
-
-    item_slot_count = 0,
+	
+	item_slot_count = 0,
 
     energy_source =
     {
@@ -31,81 +30,6 @@ local entity = {
       match_speed_to_activity = true,
     },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-
-    sprites =
-    {
-      north =
-      {
-        filename = "__base__/graphics/entity/combinator/combinator-entities.png",
-        x = 158,
-        width = 79,
-        height = 63,
-        frame_count = 1,
-        shift = {0.140625, 0.140625},
-      },
-      east =
-      {
-        filename = "__base__/graphics/entity/combinator/combinator-entities.png",
-        width = 79,
-        height = 63,
-        frame_count = 1,
-        shift = {0.140625, 0.140625},
-      },
-      south =
-      {
-        filename = "__base__/graphics/entity/combinator/combinator-entities.png",
-        x = 237,
-        width = 79,
-        height = 63,
-        frame_count = 1,
-        shift = {0.140625, 0.140625},
-      },
-      west =
-      {
-        filename = "__base__/graphics/entity/combinator/combinator-entities.png",
-        x = 79,
-        width = 79,
-        height = 63,
-        frame_count = 1,
-        shift = {0.140625, 0.140625},
-      }
-    },
-
-    activity_led_sprites =
-    {
-      north =
-      {
-        filename = "__base__/graphics/entity/combinator/activity-leds/arithmetic-combinator-LED-N.png",
-        width = 11,
-        height = 11,
-        frame_count = 1,
-        shift = {0.234375, -0.484375},
-      },
-      east =
-      {
-        filename = "__base__/graphics/entity/combinator/activity-leds/arithmetic-combinator-LED-E.png",
-        width = 10,
-        height = 10,
-        frame_count = 1,
-        shift = {0.5, 0},
-      },
-      south =
-      {
-        filename = "__base__/graphics/entity/combinator/activity-leds/arithmetic-combinator-LED-S.png",
-        width = 13,
-        height = 11,
-        frame_count = 1,
-        shift = {-0.265625, 0.140625},
-      },
-      west =
-      {
-        filename = "__base__/graphics/entity/combinator/activity-leds/arithmetic-combinator-LED-W.png",
-        width = 13,
-        height = 11,
-        frame_count = 1,
-        shift = {-0.453125, -0.359375},
-      }
-    },
 
     activity_led_light =
     {
@@ -138,59 +62,60 @@ local entity = {
     },
 
     input_connection_bounding_box = {{-0.5, 0}, {0.5, 1}},
+    output_connection_bounding_box = {{-0.5, -1}, {0.5, 0}},
 	
-    circuit_wire_connection_points =
-    {
-      {
-        shadow =
-        {
-          red = {0.171875, 0.703125},
-          green = {0.765625, 0.703125}
-        },
-        wire =
-        {
-          red = {-0.28125, 0.34375},
-          green = {0.28125, 0.34375},
-        }
-      },
-      {
-        shadow =
-        {
-          red = {-0.328125, -0.078125},
-          green = {-0.328125, 0.328125},
-        },
-        wire =
-        {
-          red = {-0.78125, -0.4375},
-          green = {-0.78125, -0.03125},
-        }
-      },
-      {
-        shadow =
-        {
-          red = {0.734375, -0.453125},
-          green = {0.171875, -0.453125}
-        },
-        wire =
-        {
-          red = {0.25, -0.78125},
-          green = {-0.3125, -0.78125}
-        }
-      },
-      {
-        shadow =
-        {
-          red = {1.20313, 0.359375},
-          green = {1.20313, -0.046875},
-        },
-        wire =
-        {
-          red = {0.78125, 0},
-          green = {0.78125, -0.4375},
-        }
-      }
-    },
-
+	circuit_wire_connection_points =
+	{
+		{
+			shadow =
+			{
+				red = util.by_pixel(7, -6),
+				green = util.by_pixel(23, -6),
+			},
+			wire =
+			{
+				red = util.by_pixel(-8.5, -17.5),
+				green = util.by_pixel(7, -17.5),
+			},
+		},
+		{
+			shadow =
+			{
+				red = util.by_pixel(32, -5),
+				green = util.by_pixel(32, 8),
+			},
+			wire =
+			{
+				red = util.by_pixel(16, -16.5),
+				green = util.by_pixel(16, -3.5),
+			},
+		},
+		{
+			shadow =
+			{
+				red = util.by_pixel(25, 20),
+				green = util.by_pixel(9, 20),
+			},
+			wire =
+			{
+				red = util.by_pixel(9, 7.5),
+				green = util.by_pixel(-6.5, 7.5),
+			},
+		},
+		{
+			shadow =
+			{
+				red = util.by_pixel(1, 11),
+				green = util.by_pixel(1, -2),
+			},
+			wire =
+			{
+				red = util.by_pixel(-15, -0.5),
+				green = util.by_pixel(-15, -13.5),
+			},
+		},
+	},
+	
     circuit_wire_max_distance = 9
   }
 
@@ -238,12 +163,16 @@ local item = {
     type = "item",
     name = "fpca",
     icon = "__base__/graphics/icons/arithmetic-combinator.png",
+	icon_size = 32,
     flags = { "goes-to-quickbar" },
     subgroup = "circuit-network",
     place_result="fpca",
     order = "c[combinators]-d[fpca]",
     stack_size = 50,
-	icon_size = 32,
   }
 
-data:extend{entity,recipe,tech,item}
+data:extend{
+entity,
+recipe,
+tech,
+item,}
